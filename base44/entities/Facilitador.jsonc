@@ -1,0 +1,52 @@
+{
+  "name": "Facilitador",
+  "description": "Facilitador SOL da área (recebe e preenche o plano de ação) (origem: dbo.Facilitador)",
+  "type": "object",
+  "properties": {
+    "Nome": {
+      "type": "string"
+    },
+    "Email": {
+      "type": "string",
+      "description": "E-mail corporativo do(a) facilitador (login)"
+    },
+    "Cargo": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "Nome",
+    "Email"
+  ],
+  "rls": {
+    "read": {
+      "$or": [
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        },
+        {
+          "user_condition": {
+            "role": "user"
+          }
+        }
+      ]
+    },
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

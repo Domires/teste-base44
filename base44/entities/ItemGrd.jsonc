@@ -1,0 +1,61 @@
+{
+  "name": "ItemGrd",
+  "description": "Item (requisito) do checklist GRD, ligado a um pilar (origem: dbo.ItemGrd)",
+  "type": "object",
+  "properties": {
+    "Ordem": {
+      "type": "number"
+    },
+    "Requisito": {
+      "type": "string"
+    },
+    "NmrRequisito": {
+      "type": "string"
+    },
+    "NmrSubRequisito": {
+      "type": "string"
+    },
+    "PilarId": {
+      "type": "string"
+    },
+    "Ativo": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "required": [
+    "Requisito",
+    "PilarId"
+  ],
+  "rls": {
+    "read": {
+      "$or": [
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        },
+        {
+          "user_condition": {
+            "role": "user"
+          }
+        }
+      ]
+    },
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

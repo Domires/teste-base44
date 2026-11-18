@@ -1,0 +1,76 @@
+{
+  "name": "ItemSgi",
+  "description": "Questão da auditoria SGI (origem: dbo.ItemSgi)",
+  "type": "object",
+  "properties": {
+    "Ordem": {
+      "type": "number"
+    },
+    "Area": {
+      "type": "string",
+      "description": "Nome da área (vazio = todas as áreas)"
+    },
+    "Questao": {
+      "type": "string"
+    },
+    "Procedimento": {
+      "type": "string"
+    },
+    "ISO9001": {
+      "type": "string"
+    },
+    "ISO14001": {
+      "type": "string"
+    },
+    "ISO45001": {
+      "type": "string"
+    },
+    "LOTOTO": {
+      "type": "string"
+    },
+    "PROCESSO": {
+      "type": "string"
+    },
+    "CAPA": {
+      "type": "string"
+    },
+    "Ativo": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "required": [
+    "Questao"
+  ],
+  "rls": {
+    "read": {
+      "$or": [
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        },
+        {
+          "user_condition": {
+            "role": "user"
+          }
+        }
+      ]
+    },
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

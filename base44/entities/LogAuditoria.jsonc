@@ -1,0 +1,74 @@
+{
+  "name": "LogAuditoria",
+  "description": "Log de atividades do sistema (RegistrarAtividade_sp) (origem: dbo.LogAuditoria)",
+  "type": "object",
+  "properties": {
+    "Aplicacao": {
+      "type": "string",
+      "enum": [
+        "Admin",
+        "Inspeção",
+        "Plano de Ação"
+      ]
+    },
+    "Acao": {
+      "type": "string"
+    },
+    "Descricao": {
+      "type": "string"
+    },
+    "Funcao": {
+      "type": "string",
+      "description": "Função de servidor (antes: stored procedure)"
+    },
+    "Modelo": {
+      "type": "string",
+      "description": "JSON com os dados enviados"
+    },
+    "Status": {
+      "type": "boolean",
+      "description": "true = sucesso"
+    },
+    "Data": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "UserName": {
+      "type": "string"
+    },
+    "UserEmail": {
+      "type": "string"
+    },
+    "SistemaOperacional": {
+      "type": "string"
+    },
+    "UserAgent": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "Acao"
+  ],
+  "rls": {
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

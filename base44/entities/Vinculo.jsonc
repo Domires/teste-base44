@@ -1,0 +1,86 @@
+{
+  "name": "Vinculo",
+  "description": "Pessoa vinculada a um local (Unidade x Área x Processo) por programa. Unifica RespUnidadeAreaProcesso, FacilitadorUnidadeAreaProcesso, GestorUnidadeAreaProcesso, LiderUnidadeAreaProcesso e RespSgiUnidadeAreaProcesso",
+  "type": "object",
+  "properties": {
+    "UnidadeAreaProcessoId": {
+      "type": "string"
+    },
+    "Programa": {
+      "type": "string",
+      "enum": [
+        "SOL",
+        "GRD",
+        "SGI"
+      ],
+      "enumColors": [
+        "yellow",
+        "blue",
+        "purple"
+      ]
+    },
+    "Papel": {
+      "type": "string",
+      "enum": [
+        "Responsável",
+        "Facilitador",
+        "Gestor",
+        "Líder",
+        "Responsável SGI"
+      ]
+    },
+    "PessoaId": {
+      "type": "string",
+      "description": "Id do registro em Responsavel/Facilitador/Gestor/Lider/ResponsavelSgi"
+    },
+    "Nome": {
+      "type": "string",
+      "description": "Cópia do nome (denormalizado)"
+    },
+    "Email": {
+      "type": "string",
+      "description": "Cópia do e-mail (denormalizado), usado para envio e controle de acesso"
+    },
+    "Cargo": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "UnidadeAreaProcessoId",
+    "Programa",
+    "Papel",
+    "PessoaId",
+    "Email"
+  ],
+  "rls": {
+    "read": {
+      "$or": [
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        },
+        {
+          "user_condition": {
+            "role": "user"
+          }
+        }
+      ]
+    },
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

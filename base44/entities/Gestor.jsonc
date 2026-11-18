@@ -1,0 +1,52 @@
+{
+  "name": "Gestor",
+  "description": "Gestor GRD da área (recebe e preenche o plano de ação) (origem: dbo.Gestor)",
+  "type": "object",
+  "properties": {
+    "Nome": {
+      "type": "string"
+    },
+    "Email": {
+      "type": "string",
+      "description": "E-mail corporativo do(a) gestor (login)"
+    },
+    "Cargo": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "Nome",
+    "Email"
+  ],
+  "rls": {
+    "read": {
+      "$or": [
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        },
+        {
+          "user_condition": {
+            "role": "user"
+          }
+        }
+      ]
+    },
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

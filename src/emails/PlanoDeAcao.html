@@ -1,0 +1,43 @@
+<!doctype html>
+<!-- E-mail "Resultado e Plano de Ação" (fluxos EnviarPAporAreaSelecionada, EnviarPAPorUnidadeMesAno, EnviarPAporMesAno e EnviarPAporTipoAno).
+     Variáveis: {{programa}} {{programa_descricao}} {{tipo_texto}} {{unidade}} {{area}} {{processo}} {{data}} {{resultado}} {{nao_conformes}} {{id_inspecao}} {{contato}}
+     O link é fixo: troque SEU-APP pelo endereço do app (ex.: https://meuapp.base44.app/plano-acao/{{id_inspecao}}). -->
+<html lang="pt-BR">
+  <body style="margin:0;padding:0;background:#eef3f5;font-family:Arial,Helvetica,sans-serif;color:#032a47;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#eef3f5;padding:24px 0;">
+      <tr>
+        <td align="center">
+          <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;background:#ffffff;border-radius:8px;overflow:hidden;">
+            <tr>
+              <td style="background:#04c4d9;padding:18px 28px;color:#ffffff;font-size:18px;font-weight:bold;">
+                Resultado e Plano de Ação — {{programa_descricao}}
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:28px;">
+                <p style="font-size:15px;line-height:1.6;margin:0 0 16px;">
+                  Olá, para acessar o resultado da {{tipo_texto}} do {{programa_descricao}} e tomar as ações cabíveis nos itens não conformes, favor acessar o link abaixo.
+                </p>
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f4f8f9;border-radius:6px;margin:0 0 20px;">
+                  <tr><td style="padding:14px 18px;font-size:14px;line-height:1.8;">
+                    <b>Unidade:</b> {{unidade}}<br />
+                    <b>Área:</b> {{area}}<br />
+                    <b>Processo:</b> {{processo}}<br />
+                    <b>Data:</b> {{data}}<br />
+                    <b>Resultado:</b> {{resultado}}<br />
+                    <b>Itens não conformes:</b> {{nao_conformes}}
+                  </td></tr>
+                </table>
+                <a href="https://SEU-APP/plano-acao/{{id_inspecao}}" style="display:inline-block;background:#032a47;color:#ffffff;text-decoration:none;padding:12px 26px;border-radius:4px;font-weight:bold;">Abrir Plano de Ação</a>
+                <p style="font-size:12px;color:#5b6b75;line-height:1.6;margin:24px 0 0;">
+                  Em caso de dúvidas, entre em contato através do e-mail {{contato}}.<br />
+                  Você recebeu esta mensagem porque está vinculado(a) como responsável por esta área.
+                </p>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

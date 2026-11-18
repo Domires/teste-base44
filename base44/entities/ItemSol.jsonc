@@ -1,0 +1,65 @@
+{
+  "name": "ItemSol",
+  "description": "Item do checklist SOL (origem: dbo.Item)",
+  "type": "object",
+  "properties": {
+    "Ordem": {
+      "type": "number"
+    },
+    "Requisito": {
+      "type": "string"
+    },
+    "Categoria": {
+      "type": "string",
+      "enum": [
+        "E",
+        "C",
+        "S",
+        "C/S"
+      ],
+      "description": "E=Empresa, C=Colaborador, S=Segurança, C/S"
+    },
+    "Subcategoria": {
+      "type": "string"
+    },
+    "Ativo": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "required": [
+    "Requisito",
+    "Categoria"
+  ],
+  "rls": {
+    "read": {
+      "$or": [
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        },
+        {
+          "user_condition": {
+            "role": "user"
+          }
+        }
+      ]
+    },
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

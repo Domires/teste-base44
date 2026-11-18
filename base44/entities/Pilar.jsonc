@@ -1,0 +1,52 @@
+{
+  "name": "Pilar",
+  "description": "Pilar do programa GRD (origem: dbo.Pilar)",
+  "type": "object",
+  "properties": {
+    "Nome": {
+      "type": "string",
+      "description": "Ex.: 1º Pilar"
+    },
+    "Descricao": {
+      "type": "string"
+    },
+    "Ordem": {
+      "type": "number",
+      "description": "Ordem de exibição (inclusive das colunas da planilha GRD, que são montadas dinamicamente pelos pilares)"
+    }
+  },
+  "required": [
+    "Nome"
+  ],
+  "rls": {
+    "read": {
+      "$or": [
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        },
+        {
+          "user_condition": {
+            "role": "user"
+          }
+        }
+      ]
+    },
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

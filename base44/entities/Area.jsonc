@@ -1,0 +1,48 @@
+{
+  "name": "Area",
+  "description": "Área inspecionada (origem: dbo.Area)",
+  "type": "object",
+  "properties": {
+    "Nome": {
+      "type": "string"
+    },
+    "Sigla": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "Nome",
+    "Sigla"
+  ],
+  "rls": {
+    "read": {
+      "$or": [
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        },
+        {
+          "user_condition": {
+            "role": "user"
+          }
+        }
+      ]
+    },
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

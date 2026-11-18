@@ -1,0 +1,53 @@
+{
+  "name": "Inspetor",
+  "description": "Inspetor/avaliador de campo (SOL/GRD). O e-mail dá acesso ao app de Inspeção (origem: dbo.Inspetor)",
+  "type": "object",
+  "properties": {
+    "Nome": {
+      "type": "string"
+    },
+    "Email": {
+      "type": "string",
+      "description": "E-mail de login"
+    },
+    "AreaId": {
+      "type": "string",
+      "description": "Área de origem do inspetor"
+    }
+  },
+  "required": [
+    "Nome",
+    "Email"
+  ],
+  "rls": {
+    "read": {
+      "$or": [
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        },
+        {
+          "user_condition": {
+            "role": "user"
+          }
+        }
+      ]
+    },
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  // Mesmo formato do projeto Base44. Ao importar, o Base44 ajusta os comandos ao template dele.
+  "name": "programa-sol-grd-sgi",
+  "site": {
+    "installCommand": "npm install",
+    "buildCommand": "npm run build",
+    "serveCommand": "npm run dev",
+    "outputDirectory": "./dist"
+  }
+}

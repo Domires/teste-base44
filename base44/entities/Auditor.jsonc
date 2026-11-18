@@ -1,0 +1,56 @@
+{
+  "name": "Auditor",
+  "description": "Auditor das auditorias SGI. O e-mail dá acesso ao app de Inspeção (origem: dbo.Auditor)",
+  "type": "object",
+  "properties": {
+    "Nome": {
+      "type": "string"
+    },
+    "Email": {
+      "type": "string",
+      "description": "E-mail corporativo do(a) auditor (login)"
+    },
+    "Cargo": {
+      "type": "string"
+    },
+    "Tipo": {
+      "type": "string",
+      "description": "Interno / Externo"
+    }
+  },
+  "required": [
+    "Nome",
+    "Email"
+  ],
+  "rls": {
+    "read": {
+      "$or": [
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        },
+        {
+          "user_condition": {
+            "role": "user"
+          }
+        }
+      ]
+    },
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

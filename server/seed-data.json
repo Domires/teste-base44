@@ -1,0 +1,784 @@
+{
+ "sol": [
+  {
+   "Categoria": "S",
+   "Subcategoria": "Infraestrutura",
+   "Numero": "1S",
+   "Requisito": "A área apresenta boa visibilidade?"
+  },
+  {
+   "Categoria": "S",
+   "Subcategoria": "Infra. Segurança",
+   "Numero": "2S",
+   "Requisito": "Há sinalização de segurança no setor? Estão em bom estado?"
+  },
+  {
+   "Categoria": "S",
+   "Subcategoria": "Infra. Segurança",
+   "Numero": "3S",
+   "Requisito": "Existem chuveiros de emergência e lava-olhos na área? Funcionam e estão em bom estado?"
+  },
+  {
+   "Categoria": "S",
+   "Subcategoria": "Infra. Segurança",
+   "Numero": "4S",
+   "Requisito": "Existem equipamentos de combate à incêndio? Estão dentro da validade e em bom estado?"
+  },
+  {
+   "Categoria": "S",
+   "Subcategoria": "Infra. Segurança",
+   "Numero": "5S",
+   "Requisito": "As escadas estão firmes e sem buracos?"
+  },
+  {
+   "Categoria": "S",
+   "Subcategoria": "Infra. Segurança",
+   "Numero": "6S",
+   "Requisito": "Os fios, extensões e cabos estão encapados e sem emendas?"
+  },
+  {
+   "Categoria": "S",
+   "Subcategoria": "Infra. Segurança",
+   "Numero": "7S",
+   "Requisito": "Há proteção em todas as partes móveis?"
+  },
+  {
+   "Categoria": "S",
+   "Subcategoria": "Infra. Segurança",
+   "Numero": "8S",
+   "Requisito": "Há guarda corpo em todas as plataformas e escadas ? Estão em bom estado?"
+  },
+  {
+   "Categoria": "E",
+   "Subcategoria": "Infraestrutura",
+   "Numero": "9",
+   "Requisito": "As paredes e pisos estão pintadas, sem rachaduras e sem buracos?"
+  },
+  {
+   "Categoria": "E",
+   "Subcategoria": "Infraestrutura",
+   "Numero": "10",
+   "Requisito": "O telhado apresenta bom estado, sem vazamento?"
+  },
+  {
+   "Categoria": "E",
+   "Subcategoria": "Infra. Equipamento",
+   "Numero": "11",
+   "Requisito": "Os equipamentos, linhas de vapor, tubulações, válvulas e torneiras apresentam boa vedação e não vazam? Estão em bom estado?"
+  },
+  {
+   "Categoria": "E",
+   "Subcategoria": "Infraestrutura",
+   "Numero": "12",
+   "Requisito": "O setor está livre de poeiras e névoas em suspensão?"
+  },
+  {
+   "Categoria": "E",
+   "Subcategoria": "Infra. Mobiliário",
+   "Numero": "13",
+   "Requisito": "O mobiliário está adequado e sem quebras e emendas (móveis, tanques, conexões)?"
+  },
+  {
+   "Categoria": "E",
+   "Subcategoria": "Identificação",
+   "Numero": "14",
+   "Requisito": "Os materiais estão TODOS identificados? (Capacetes e uniformes)"
+  },
+  {
+   "Categoria": "C/S",
+   "Subcategoria": "Segurança",
+   "Numero": "15S",
+   "Requisito": "Os equipamentos de combate à incêndio, rotas de fuga e vias de passagem estão livres de obstrução?"
+  },
+  {
+   "Categoria": "C/S",
+   "Subcategoria": "Segurança",
+   "Numero": "16S",
+   "Requisito": "Os colaboradores estão utilizando TODOS os EPIs indicados para cada área?"
+  },
+  {
+   "Categoria": "C",
+   "Subcategoria": "Organização",
+   "Numero": "17",
+   "Requisito": "O quadro de Gestão à Vista está em boas condições? Os índices Desempenho & Ação são avaliados? Quando os índices possuem desvios há ações por parte da Operação?"
+  },
+  {
+   "Categoria": "C",
+   "Subcategoria": "Organização",
+   "Numero": "18",
+   "Requisito": "Os materiais e/ou objetos estão em local adequado?"
+  },
+  {
+   "Categoria": "C",
+   "Subcategoria": "Organização",
+   "Numero": "19",
+   "Requisito": "Os materiais estão empilhados de maneira adequada?"
+  },
+  {
+   "Categoria": "C/S",
+   "Subcategoria": "Identificação",
+   "Numero": "20S",
+   "Requisito": "Os materiais estão TODOS identificados? (Produtos, objetos diversos etc.)"
+  },
+  {
+   "Categoria": "C",
+   "Subcategoria": "Organização",
+   "Numero": "21",
+   "Requisito": "As mangueiras e conexões estão devidamente organizadas e enroladas?"
+  },
+  {
+   "Categoria": "C",
+   "Subcategoria": "Organização",
+   "Numero": "22",
+   "Requisito": "Os equipamentos de limpeza (pás, rodos e vassouras) estão nos suportes?"
+  },
+  {
+   "Categoria": "C",
+   "Subcategoria": "Limpeza",
+   "Numero": "23",
+   "Requisito": "Os pisos estão limpos e secos?"
+  },
+  {
+   "Categoria": "C",
+   "Subcategoria": "Limpeza",
+   "Numero": "24",
+   "Requisito": "Os uniformes dos colaboradores estão limpos e sem rasgo?"
+  },
+  {
+   "Categoria": "C",
+   "Subcategoria": "Limpeza",
+   "Numero": "25",
+   "Requisito": "O ambiente está livre de alimentos?"
+  },
+  {
+   "Categoria": "C",
+   "Subcategoria": "Limpeza",
+   "Numero": "26",
+   "Requisito": "As escadas estão limpas e secas?"
+  },
+  {
+   "Categoria": "C",
+   "Subcategoria": "Identificação",
+   "Numero": "27",
+   "Requisito": "As tomadas, painéis e caixas de força estão todas identificadas?"
+  },
+  {
+   "Categoria": "C",
+   "Subcategoria": "Organização",
+   "Numero": "28",
+   "Requisito": "Os arquivos e pastas encontram-se identificados e organizados?"
+  },
+  {
+   "Categoria": "C",
+   "Subcategoria": "Limpeza",
+   "Numero": "29",
+   "Requisito": "Os computadores estão limpos e em bom estado?"
+  },
+  {
+   "Categoria": "C",
+   "Subcategoria": "Organização",
+   "Numero": "30",
+   "Requisito": "As mesas e gavetas estão organizadas?"
+  },
+  {
+   "Categoria": "C",
+   "Subcategoria": "Organização",
+   "Numero": "31",
+   "Requisito": "Os fios das máquinas estão presos e organizados?"
+  }
+ ],
+ "grd": [
+  {
+   "Pilar": "Necessidade de clientes internos e externos",
+   "Item": "1",
+   "NmrRequisito": "8",
+   "NmrSubRequisito": "8.2",
+   "Requisito": "A área atende o prazo de resposta de reclamações de clientes? (30 dias corridos)"
+  },
+  {
+   "Pilar": "Necessidade de clientes internos e externos",
+   "Item": "2",
+   "NmrRequisito": "8",
+   "NmrSubRequisito": "8.2",
+   "Requisito": "A área atende o prazo de resposta de ocorrências internas? (30 dias corridos)"
+  },
+  {
+   "Pilar": "Necessidade de clientes internos e externos",
+   "Item": "3",
+   "NmrRequisito": "8",
+   "NmrSubRequisito": "8.2",
+   "Requisito": "A área atende o prazo para término de ações oriundas as reclamações de clientes? (prazo determinado por resp. pelo planejamento de investigação e ação)"
+  },
+  {
+   "Pilar": "Necessidade de clientes internos e externos",
+   "Item": "4",
+   "NmrRequisito": "8",
+   "NmrSubRequisito": "8.2",
+   "Requisito": "A área atende o prazo para término de ações oriundas as ocorrências internas? (prazo determinado por resp. pelo planejamento de investigação e ação)"
+  },
+  {
+   "Pilar": "Engajamento de Pessoas e Liderança",
+   "Item": "5",
+   "NmrRequisito": "7",
+   "NmrSubRequisito": "7.2",
+   "Requisito": "Há plano de Integração de Novos Colaboradores (CLT e Temporário)? Se sim, há evidência de treinamento?"
+  },
+  {
+   "Pilar": "Engajamento de Pessoas e Liderança",
+   "Item": "6",
+   "NmrRequisito": "7",
+   "NmrSubRequisito": "7.2",
+   "Requisito": "A área está com o Planejamento Anual de Treinamento Operacional atualizado (CLT e Temporário)?"
+  },
+  {
+   "Pilar": "Engajamento de Pessoas e Liderança",
+   "Item": "7",
+   "NmrRequisito": "7",
+   "NmrSubRequisito": "7.2",
+   "Requisito": "O público-alvo mencionado no Planejamento Anual de Treinamento Operacional foi treinado (CLTe Temporário)?"
+  },
+  {
+   "Pilar": "Engajamento de Pessoas e Liderança",
+   "Item": "8",
+   "NmrRequisito": "7",
+   "NmrSubRequisito": "7.2",
+   "Requisito": "O Sistema de Gestão está com o Planejamento de Treinamento atualizado?"
+  },
+  {
+   "Pilar": "Engajamento de Pessoas e Liderança",
+   "Item": "9",
+   "NmrRequisito": "7",
+   "NmrSubRequisito": "7.2",
+   "Requisito": "O público-alvo mencionado no Planejamento Anual foi treinado?"
+  },
+  {
+   "Pilar": "Engajamento de Pessoas e Liderança",
+   "Item": "10",
+   "NmrRequisito": "7",
+   "NmrSubRequisito": "7.2",
+   "Requisito": "A área possui pendências em atraso no SE Suite Problema?"
+  },
+  {
+   "Pilar": "Engajamento de Pessoas e Liderança",
+   "Item": "11",
+   "NmrRequisito": "7",
+   "NmrSubRequisito": "7.2",
+   "Requisito": "A área possui pendências em atraso no SE Suite Documento?"
+  },
+  {
+   "Pilar": "Engajamento de Pessoas e Liderança",
+   "Item": "12",
+   "NmrRequisito": "7",
+   "NmrSubRequisito": "7.2",
+   "Requisito": "A área possui pendências em atraso no SE Suite Desempenho?"
+  },
+  {
+   "Pilar": "Abordagem por processos",
+   "Item": "13",
+   "NmrRequisito": "8/ BPF",
+   "NmrSubRequisito": "8.5",
+   "Requisito": "O processo possui sistemática de trabalho formalizada através do SE Suite, referente a todas as atividades sendo de fabricação e administrativa?"
+  },
+  {
+   "Pilar": "Abordagem por processos",
+   "Item": "14",
+   "NmrRequisito": "8",
+   "NmrSubRequisito": "8.5",
+   "Requisito": "O processo possui mapeamento das variáveis críticas de entrada e saída para realização das atividades sendo fabricação e administrativa, e estão formalizados através do SE Suite?"
+  },
+  {
+   "Pilar": "Abordagem por processos",
+   "Item": "15",
+   "NmrRequisito": "8/ BPF",
+   "NmrSubRequisito": "8.5",
+   "Requisito": "Os apontamentos de processo são registrados nos Controles de Processos/ Internos , conforme estabelecido na IT-Instrução de Trabalho e/ou PG-Padrão Gerencial?"
+  },
+  {
+   "Pilar": "Abordagem por processos",
+   "Item": "16",
+   "NmrRequisito": "8",
+   "NmrSubRequisito": "8.5",
+   "Requisito": "A operação avalia e toma ações imediatas, quando o processo indica desvios? (Seja nos Controles de processos e/ou Diários de Bordos das Cartas CEP's)"
+  },
+  {
+   "Pilar": "Abordagem por processos",
+   "Item": "17",
+   "NmrRequisito": "8 e 10",
+   "NmrSubRequisito": "8.5 e 10.2",
+   "Requisito": "Quando as ações imediatas não estabilizam o processo, é providenciado Plano de Ação? Se sim, a NC de processo está aberta no SE Suite e está sendo tratada?"
+  },
+  {
+   "Pilar": "Abordagem por processos",
+   "Item": "18",
+   "NmrRequisito": "9",
+   "NmrSubRequisito": "9.1",
+   "Requisito": "Os indicadores Operacionais estão validados e são acompanhanhados?"
+  },
+  {
+   "Pilar": "Abordagem por processos",
+   "Item": "19",
+   "NmrRequisito": "9",
+   "NmrSubRequisito": "9.1",
+   "Requisito": "Os Indicadores de Desempenho Operacionais estão no quadro Desempenho & Ação?"
+  },
+  {
+   "Pilar": "Abordagem por processos",
+   "Item": "20",
+   "NmrRequisito": "9",
+   "NmrSubRequisito": "9.1",
+   "Requisito": "A operação sabe o objetivo do Indicador de Desempenho?"
+  },
+  {
+   "Pilar": "Abordagem por processos",
+   "Item": "21",
+   "NmrRequisito": "9",
+   "NmrSubRequisito": "9.1",
+   "Requisito": "Os Indicadores de Desempenho Operacionais estão devidamente atualizados?"
+  },
+  {
+   "Pilar": "Abordagem por processos",
+   "Item": "22",
+   "NmrRequisito": "9",
+   "NmrSubRequisito": "9.1",
+   "Requisito": "A operação avalia e toma ações, quando a meta não é atingida?"
+  },
+  {
+   "Pilar": "Abordagem por processos",
+   "Item": "23",
+   "NmrRequisito": "9 e 10",
+   "NmrSubRequisito": "9.1 e 10.2",
+   "Requisito": "A operação abre não conformidade quando identifica que as ações imediatas não surtem efeito e necessita de uma tratativa mais aprofundada? Se sim, a NC está sendo tratada?"
+  },
+  {
+   "Pilar": "Confirmação/ Verificação",
+   "Item": "24",
+   "NmrRequisito": "9",
+   "NmrSubRequisito": "9.1",
+   "Requisito": "As ações tomadas oriundas as reclamações de clientes foram eficazes (exceto P&D)?"
+  },
+  {
+   "Pilar": "Confirmação/ Verificação",
+   "Item": "25",
+   "NmrRequisito": "9",
+   "NmrSubRequisito": "9.1",
+   "Requisito": "As ações tomadas oriundas as ocorrências internas foram eficazes?"
+  },
+  {
+   "Pilar": "Confirmação/ Verificação",
+   "Item": "26",
+   "NmrRequisito": "9",
+   "NmrSubRequisito": "9.1",
+   "Requisito": "As ações tomadas oriundas as ocorrências externas (Clientes, Certificadoras, Fiscalização) foram eficazes?"
+  },
+  {
+   "Pilar": "Confirmação/ Verificação",
+   "Item": "27",
+   "NmrRequisito": "9",
+   "NmrSubRequisito": "9.1",
+   "Requisito": "Os Treinamentos Operacionais foram eficazes?"
+  },
+  {
+   "Pilar": "Confirmação/ Verificação",
+   "Item": "28",
+   "NmrRequisito": "9",
+   "NmrSubRequisito": "9.1",
+   "Requisito": "Os Treinamentos Qualidade foram eficazes?"
+  },
+  {
+   "Pilar": "Confirmação/ Verificação",
+   "Item": "29",
+   "NmrRequisito": "5S, 9 e 10",
+   "NmrSubRequisito": "10.2 e 9.1",
+   "Requisito": "A operação toma as devidas ações e formaliza através do Check list de Inspeção do Programa SOL? As ações são eficazes?"
+  },
+  {
+   "Pilar": "Melhoria",
+   "Item": "30",
+   "NmrRequisito": "10",
+   "NmrSubRequisito": "10.2",
+   "Requisito": "A operação é envolvida e participa da investigação (ARQ, RNC e RAI), para eliminar a causa da não conformidade para que o problema não volte a ocorrer?"
+  },
+  {
+   "Pilar": "Melhoria",
+   "Item": "31",
+   "NmrRequisito": "10",
+   "NmrSubRequisito": "10.3",
+   "Requisito": "O líder de GRD dá abertura para que a nossa operação indique idéias (melhorias)? As idéias são avaliadas e controladas?"
+  },
+  {
+   "Pilar": "Melhoria",
+   "Item": "32",
+   "NmrRequisito": "10",
+   "NmrSubRequisito": "10.3",
+   "Requisito": "O líder de GRD retorna o feedback sobre as idéias?"
+  },
+  {
+   "Pilar": "Melhoria",
+   "Item": "33",
+   "NmrRequisito": "10",
+   "NmrSubRequisito": "10.3",
+   "Requisito": "O líder de GRD possui projetos (GTO's/White Belts), temas validados junto a sua liderança?"
+  },
+  {
+   "Pilar": "Melhoria",
+   "Item": "34",
+   "NmrRequisito": "10",
+   "NmrSubRequisito": "10.3",
+   "Requisito": "O líder de GRD possui acompanhamento da implementação do projeto? O projeto atendeu a meta estabelecida?"
+  },
+  {
+   "Pilar": "Melhoria",
+   "Item": "35",
+   "NmrRequisito": "10",
+   "NmrSubRequisito": "10.2",
+   "Requisito": "O líder de GRD reune a operação para tratar NC's, atualização de documentos e realização de treinamentos?"
+  },
+  {
+   "Pilar": "Melhoria",
+   "Item": "36",
+   "NmrRequisito": "10",
+   "NmrSubRequisito": "10.3",
+   "Requisito": "O líder de GRD realiza reuniões mensalmente?"
+  }
+ ],
+ "pilares": [
+  "Necessidade de clientes internos e externos",
+  "Engajamento de Pessoas e Liderança",
+  "Abordagem por processos",
+  "Confirmação/ Verificação",
+  "Melhoria",
+  "Pontuação Atendimento ao GRD-Gerenciamento de Rotina Diária"
+ ],
+ "locais": [
+  {
+   "Unidade": "Cruz Alta",
+   "Area": "Recebimento",
+   "Processo": "Apoio"
+  },
+  {
+   "Unidade": "Uberlândia",
+   "Area": "Recebimento",
+   "Processo": "Apoio"
+  },
+  {
+   "Unidade": "Suzano I",
+   "Area": "Hidrossolúveis",
+   "Processo": "Produção"
+  },
+  {
+   "Unidade": "Mauá",
+   "Area": "Moinho",
+   "Processo": "Produção"
+  },
+  {
+   "Unidade": "Suzano I",
+   "Area": "Spray Dryer II",
+   "Processo": "Produção"
+  },
+  {
+   "Unidade": "Suzano I",
+   "Area": "Fertilizantes Foliares",
+   "Processo": "Produção"
+  },
+  {
+   "Unidade": "Uberlândia",
+   "Area": "Laboratório de Controle de Qualidade",
+   "Processo": "Apoio"
+  },
+  {
+   "Unidade": "Jacareí II",
+   "Area": "Utilidades",
+   "Processo": "Apoio"
+  },
+  {
+   "Unidade": "Jacareí II",
+   "Area": "Planejamento e Controle de Produção",
+   "Processo": "Apoio"
+  },
+  {
+   "Unidade": "Jacareí I",
+   "Area": "Fusão",
+   "Processo": "Produção"
+  },
+  {
+   "Unidade": "Cidade Ocidental",
+   "Area": "Embalagem",
+   "Processo": "Produção"
+  },
+  {
+   "Unidade": "Jacareí II",
+   "Area": "Producote",
+   "Processo": "Produção"
+  },
+  {
+   "Unidade": "Suzano I",
+   "Area": "Recebimento",
+   "Processo": "Apoio"
+  },
+  {
+   "Unidade": "Jacareí I",
+   "Area": "Recebimento",
+   "Processo": "Apoio"
+  },
+  {
+   "Unidade": "Uberlândia",
+   "Area": "Ensaque",
+   "Processo": "Produção"
+  },
+  {
+   "Unidade": "Suzano I",
+   "Area": "Laboratório de Controle de Qualidade",
+   "Processo": "Apoio"
+  },
+  {
+   "Unidade": "Mauá",
+   "Area": "Planejamento e Controle de Produção",
+   "Processo": "Apoio"
+  },
+  {
+   "Unidade": "Cidade Ocidental",
+   "Area": "Expedição",
+   "Processo": "Apoio"
+  },
+  {
+   "Unidade": "Suzano I",
+   "Area": "Molibdênio",
+   "Processo": "Produção"
+  },
+  {
+   "Unidade": "Jacareí II",
+   "Area": "Mistura",
+   "Processo": "Produção"
+  },
+  {
+   "Unidade": "Jacareí I",
+   "Area": "Lentilhado",
+   "Processo": "Produção"
+  },
+  {
+   "Unidade": "Jacareí I",
+   "Area": "Planejamento e Controle de Produção",
+   "Processo": "Apoio"
+  },
+  {
+   "Unidade": "Mauá",
+   "Area": "Expedição",
+   "Processo": "Apoio"
+  },
+  {
+   "Unidade": "Suzano I",
+   "Area": "Planejamento e Controle de Produção",
+   "Processo": "Apoio"
+  },
+  {
+   "Unidade": "Suzano II",
+   "Area": "Expedição",
+   "Processo": "Apoio"
+  },
+  {
+   "Unidade": "Cidade Ocidental",
+   "Area": "Recebimento",
+   "Processo": "Apoio"
+  },
+  {
+   "Unidade": "Suzano I",
+   "Area": "Utilidades",
+   "Processo": "Apoio"
+  },
+  {
+   "Unidade": "Jacareí I",
+   "Area": "Laboratório de Controle de Qualidade",
+   "Processo": "Apoio"
+  },
+  {
+   "Unidade": "Jacareí II",
+   "Area": "Recebimento",
+   "Processo": "Apoio"
+  },
+  {
+   "Unidade": "Suzano II",
+   "Area": "Granulação",
+   "Processo": "Produção"
+  },
+  {
+   "Unidade": "Suzano II",
+   "Area": "Laboratório de Controle de Qualidade",
+   "Processo": "Apoio"
+  },
+  {
+   "Unidade": "Suzano I",
+   "Area": "Expedição",
+   "Processo": "Apoio"
+  },
+  {
+   "Unidade": "Jacareí II",
+   "Area": "Laboratório de Controle de Qualidade",
+   "Processo": "Apoio"
+  },
+  {
+   "Unidade": "Mauá",
+   "Area": "Recebimento",
+   "Processo": "Apoio"
+  },
+  {
+   "Unidade": "Mauá",
+   "Area": "Faturamento",
+   "Processo": "Apoio"
+  },
+  {
+   "Unidade": "Suzano II",
+   "Area": "Operação-Ensaque",
+   "Processo": "Produção"
+  },
+  {
+   "Unidade": "Suzano I",
+   "Area": "Carbonatos",
+   "Processo": "Produção"
+  },
+  {
+   "Unidade": "Mauá",
+   "Area": "Utilidades",
+   "Processo": "Apoio"
+  },
+  {
+   "Unidade": "Suzano II",
+   "Area": "Operação-Granulação",
+   "Processo": "Produção"
+  },
+  {
+   "Unidade": "Suzano I",
+   "Area": "Hidrossolúveis Formulações",
+   "Processo": "Produção"
+  },
+  {
+   "Unidade": "Suzano I",
+   "Area": "Sulfato de Cobre",
+   "Processo": "Produção"
+  },
+  {
+   "Unidade": "Mauá",
+   "Area": "Granulação II",
+   "Processo": "Produção"
+  },
+  {
+   "Unidade": "Mauá",
+   "Area": "Laboratório de Controle de Qualidade",
+   "Processo": "Apoio"
+  },
+  {
+   "Unidade": "Uberlândia",
+   "Area": "Recobrimento",
+   "Processo": "Produção"
+  },
+  {
+   "Unidade": "Suzano II",
+   "Area": "Operação-Mistura",
+   "Processo": "Produção"
+  },
+  {
+   "Unidade": "Mauá",
+   "Area": "Granulação III",
+   "Processo": "Produção"
+  },
+  {
+   "Unidade": "Cidade Ocidental",
+   "Area": "Faturamento",
+   "Processo": "Apoio"
+  },
+  {
+   "Unidade": "Jacareí I",
+   "Area": "Faturamento",
+   "Processo": "Apoio"
+  },
+  {
+   "Unidade": "Cidade Ocidental",
+   "Area": "Envase",
+   "Processo": "Produção"
+  },
+  {
+   "Unidade": "Suzano II",
+   "Area": "Planejamento e Controle de Produção",
+   "Processo": "Apoio"
+  },
+  {
+   "Unidade": "Jacareí II",
+   "Area": "Expedição",
+   "Processo": "Apoio"
+  },
+  {
+   "Unidade": "Mauá",
+   "Area": "Ensaque",
+   "Processo": "Produção"
+  },
+  {
+   "Unidade": "Jacareí I",
+   "Area": "Utilidades",
+   "Processo": "Apoio"
+  },
+  {
+   "Unidade": "Uberlândia",
+   "Area": "Planejamento e Controle de Produção",
+   "Processo": "Apoio"
+  },
+  {
+   "Unidade": "Cruz Alta",
+   "Area": "Produção Foliar",
+   "Processo": "Produção"
+  },
+  {
+   "Unidade": "Suzano I",
+   "Area": "Faturamento",
+   "Processo": "Apoio"
+  },
+  {
+   "Unidade": "Jacareí II",
+   "Area": "Revestimento de Grãos",
+   "Processo": "Produção"
+  },
+  {
+   "Unidade": "Uberlândia",
+   "Area": "Faturamento",
+   "Processo": "Apoio"
+  },
+  {
+   "Unidade": "Uberlândia",
+   "Area": "Expedição",
+   "Processo": "Apoio"
+  },
+  {
+   "Unidade": "Jacareí II",
+   "Area": "Faturamento",
+   "Processo": "Apoio"
+  },
+  {
+   "Unidade": "Suzano II",
+   "Area": "Faturamento",
+   "Processo": "Apoio"
+  },
+  {
+   "Unidade": "Mauá",
+   "Area": "Mistura",
+   "Processo": "Produção"
+  },
+  {
+   "Unidade": "Cruz Alta",
+   "Area": "Armazém-Expedição",
+   "Processo": "Apoio"
+  },
+  {
+   "Unidade": "Cidade Ocidental",
+   "Area": "Produção Foliar",
+   "Processo": "Produção"
+  },
+  {
+   "Unidade": "Jacareí I",
+   "Area": "Expedição",
+   "Processo": "Apoio"
+  },
+  {
+   "Unidade": "Suzano II",
+   "Area": "Recebimento",
+   "Processo": "Apoio"
+  }
+ ]
+}

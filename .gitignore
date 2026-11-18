@@ -1,2 +1,7 @@
-node_modules
-dist
+node_modules/
+dist/
+server/data/
+.env
+*.log
+.tanstack/
+src/routeTree.gen.ts

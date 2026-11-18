@@ -1,0 +1,62 @@
+{
+  "name": "TipoDeInspecao",
+  "description": "Tipo de inspeção/avaliação (ex.: 1ª Inspeção, 2ª Avaliação) (origem: dbo.TipoDeInspecao + dbo.TipoDeFormulario)",
+  "type": "object",
+  "properties": {
+    "Tipo": {
+      "type": "string"
+    },
+    "Descricao": {
+      "type": "string"
+    },
+    "Programa": {
+      "type": "string",
+      "enum": [
+        "SOL",
+        "GRD",
+        "SGI"
+      ],
+      "enumColors": [
+        "yellow",
+        "blue",
+        "purple"
+      ],
+      "description": "Tipo de formulário (dbo.TipoDeFormulario)"
+    }
+  },
+  "required": [
+    "Tipo",
+    "Programa"
+  ],
+  "rls": {
+    "read": {
+      "$or": [
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        },
+        {
+          "user_condition": {
+            "role": "user"
+          }
+        }
+      ]
+    },
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

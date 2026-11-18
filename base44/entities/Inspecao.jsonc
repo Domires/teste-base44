@@ -1,0 +1,329 @@
+{
+  "name": "Inspecao",
+  "description": "Inspeção SOL / avaliação GRD / auditoria SGI. O checklist é guardado em JSON para não depender de alterações futuras nos itens (origem: dbo.Inspecao + Checklist + Score + Assinatura + Evidencia + MetricasGrd)",
+  "type": "object",
+  "properties": {
+    "TipoDeFormulario": {
+      "type": "string",
+      "enum": [
+        "SOL",
+        "GRD",
+        "SGI"
+      ],
+      "enumColors": [
+        "yellow",
+        "blue",
+        "purple"
+      ]
+    },
+    "TipoDeInspecao": {
+      "type": "string",
+      "description": "Nome do tipo (agendamento vigente na data)"
+    },
+    "TipoDeInspecaoId": {
+      "type": "string"
+    },
+    "Data": {
+      "type": "string",
+      "format": "date"
+    },
+    "UnidadeAreaProcessoId": {
+      "type": "string"
+    },
+    "Unidade": {
+      "type": "string"
+    },
+    "UnidadeSigla": {
+      "type": "string"
+    },
+    "Area": {
+      "type": "string"
+    },
+    "AreaSigla": {
+      "type": "string"
+    },
+    "Processo": {
+      "type": "string"
+    },
+    "RespAcompanhamento": {
+      "type": "string"
+    },
+    "Cargo": {
+      "type": "string"
+    },
+    "Inspetor1": {
+      "type": "string",
+      "description": "SOL"
+    },
+    "Inspetor2": {
+      "type": "string",
+      "description": "SOL"
+    },
+    "Avaliador": {
+      "type": "string",
+      "description": "GRD"
+    },
+    "Auditor": {
+      "type": "string",
+      "description": "SGI"
+    },
+    "EquipeEntrevistada": {
+      "type": "string",
+      "description": "SGI: e-mails separados por ';'"
+    },
+    "NormaDisciplina": {
+      "type": "string",
+      "description": "SGI: normas separadas por ';'"
+    },
+    "Ano": {
+      "type": "number",
+      "description": "SGI: ano de preenchimento. Um registro por Unidade/Área + NormaDisciplina + Ano (sem finalização; só Salvar)"
+    },
+    "Observacao": {
+      "type": "string"
+    },
+    "Checklist": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "Id": {
+            "type": "string",
+            "description": "Id do item de origem"
+          },
+          "indice": {
+            "type": "number"
+          },
+          "Requisito": {
+            "type": "string"
+          },
+          "Questao": {
+            "type": "string",
+            "description": "SGI"
+          },
+          "Categoria": {
+            "type": "string",
+            "description": "SOL"
+          },
+          "Subcategoria": {
+            "type": "string",
+            "description": "SOL"
+          },
+          "NmrRequisito": {
+            "type": "string",
+            "description": "GRD"
+          },
+          "NmrSubRequisito": {
+            "type": "string",
+            "description": "GRD"
+          },
+          "PilarId": {
+            "type": "string",
+            "description": "GRD"
+          },
+          "PilarNome": {
+            "type": "string",
+            "description": "GRD"
+          },
+          "PilarDescricao": {
+            "type": "string",
+            "description": "GRD"
+          },
+          "Procedimento": {
+            "type": "string",
+            "description": "SGI"
+          },
+          "ISO9001": {
+            "type": "string"
+          },
+          "ISO14001": {
+            "type": "string"
+          },
+          "ISO45001": {
+            "type": "string"
+          },
+          "LOTOTO": {
+            "type": "string"
+          },
+          "PROCESSO": {
+            "type": "string"
+          },
+          "CAPA": {
+            "type": "string"
+          },
+          "Resposta": {
+            "type": "string",
+            "description": "SOL: Sim/Não/N/A; GRD: Sim/Não; SGI: Não Conformidade Maior/Menor, Ponto de Melhoria, Ponto Positivo, Conforme, N/A"
+          },
+          "ItemObservacao": {
+            "type": "string",
+            "description": "SOL: observação do item não conforme; GRD: evidência"
+          },
+          "DescricaoApontamento": {
+            "type": "string",
+            "description": "SGI"
+          },
+          "ReferenciaNormativa": {
+            "type": "string",
+            "description": "SGI"
+          },
+          "EvidenciasObjetivas": {
+            "type": "string",
+            "description": "SGI"
+          },
+          "SugestaoDeAdequacao": {
+            "type": "string",
+            "description": "SGI"
+          },
+          "Fotos": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "URLs das evidências (fotos) do item, substitui dbo.Evidencia"
+          }
+        }
+      }
+    },
+    "Metricas": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "Pilar": {
+            "type": "string"
+          },
+          "Descricao": {
+            "type": "string"
+          },
+          "Conforme": {
+            "type": "number"
+          },
+          "NaoConforme": {
+            "type": "number"
+          },
+          "Atendimento": {
+            "type": "number"
+          }
+        }
+      },
+      "description": "GRD: % de atendimento por pilar"
+    },
+    "ScoreEmpresa": {
+      "type": "number",
+      "description": "SOL"
+    },
+    "ScoreColaborador": {
+      "type": "number",
+      "description": "SOL"
+    },
+    "ScoreSeguranca": {
+      "type": "number",
+      "description": "SOL"
+    },
+    "ScoreTotal": {
+      "type": "number",
+      "description": "SOL"
+    },
+    "PLR": {
+      "type": "number",
+      "description": "SOL (= Score Colaborador)"
+    },
+    "Status": {
+      "type": "string",
+      "enum": [
+        "RUIM",
+        "REGULAR",
+        "BOM",
+        "ÓTIMO",
+        "EXCELENTE"
+      ],
+      "description": "SOL: classificação do score total"
+    },
+    "Atendimento": {
+      "type": "number",
+      "description": "GRD: % de atendimento total"
+    },
+    "AssinaturaUrl": {
+      "type": "string",
+      "description": "Imagem da assinatura do responsável pelo acompanhamento"
+    },
+    "EmAberto": {
+      "type": "boolean",
+      "description": "true = salva parcialmente (em andamento); false = finalizada",
+      "default": false
+    },
+    "InspetorEmail": {
+      "type": "string",
+      "description": "E-mail de quem iniciou/finalizou"
+    },
+    "DataFinalizacao": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "Inativado": {
+      "type": "boolean",
+      "default": false
+    },
+    "Inativador": {
+      "type": "string"
+    },
+    "dtInativacao": {
+      "type": "string",
+      "format": "date"
+    },
+    "MotivoInativacao": {
+      "type": "string"
+    },
+    "Editor": {
+      "type": "string"
+    },
+    "dtEdicao": {
+      "type": "string",
+      "format": "date"
+    },
+    "Disparado": {
+      "type": "boolean",
+      "description": "E-mail de plano de ação já enviado",
+      "default": false
+    },
+    "DataDisparo": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "TipoDeFormulario",
+    "UnidadeAreaProcessoId",
+    "Data"
+  ],
+  "rls": {
+    "read": {
+      "$or": [
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        },
+        {
+          "data.InspetorEmail": "{{user.email}}"
+        }
+      ]
+    },
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

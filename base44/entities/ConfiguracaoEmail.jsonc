@@ -1,0 +1,54 @@
+{
+  "name": "ConfiguracaoEmail",
+  "description": "Configuração dos e-mails (registro único): modo teste (todos os e-mails só para os destinatários de teste) e modelos editáveis (assunto, corpo HTML, importância) do envio individual e em lote. Tela: Admin › Programação › Configurar e-mails",
+  "type": "object",
+  "properties": {
+    "ModoTeste": {
+      "type": "boolean",
+      "default": false,
+      "description": "true = os e-mails NÃO vão para os responsáveis; vão só para DestinatariosTeste"
+    },
+    "DestinatariosTeste": {
+      "type": "string",
+      "description": "E-mails que recebem as mensagens no modo teste, separados por ';'"
+    },
+    "AssuntoIndividual": {
+      "type": "string",
+      "description": "Assunto do e-mail individual (tela Inspeções). Vazio = padrão. Aceita {{variaveis}}"
+    },
+    "CorpoIndividual": {
+      "type": "string",
+      "description": "Corpo HTML do e-mail individual. Vazio = modelo padrão (src/emails/PlanoDeAcao.html)"
+    },
+    "AssuntoLote": {
+      "type": "string",
+      "description": "Assunto do e-mail em lote (tela Disparos). Vazio = padrão"
+    },
+    "CorpoLote": {
+      "type": "string",
+      "description": "Corpo HTML do e-mail em lote. Vazio = modelo padrão"
+    }
+  },
+  "rls": {
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

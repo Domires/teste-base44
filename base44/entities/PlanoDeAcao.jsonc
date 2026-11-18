@@ -1,0 +1,107 @@
+{
+  "name": "PlanoDeAcao",
+  "description": "Plano de ação de um item não conforme de uma inspeção (origem: dbo.PlanoDeAcao + dbo.PlanoDeAcaoFoto)",
+  "type": "object",
+  "properties": {
+    "InspecaoId": {
+      "type": "string"
+    },
+    "ItemRef": {
+      "type": "string",
+      "description": "Id do item do checklist"
+    },
+    "TipoDeFormulario": {
+      "type": "string",
+      "enum": [
+        "SOL",
+        "GRD",
+        "SGI"
+      ],
+      "enumColors": [
+        "yellow",
+        "blue",
+        "purple"
+      ]
+    },
+    "Acao": {
+      "type": "string",
+      "description": "Descritivo da ação"
+    },
+    "Data": {
+      "type": "string",
+      "format": "date",
+      "description": "Data do término da ação"
+    },
+    "Status": {
+      "type": "string",
+      "enum": [
+        "Em andamento",
+        "Finalizado"
+      ],
+      "enumColors": [
+        "yellow",
+        "green"
+      ]
+    },
+    "Responsavel": {
+      "type": "string",
+      "description": "Resp. pelo preenchimento"
+    },
+    "ResponsavelEmail": {
+      "type": "string"
+    },
+    "RespExec": {
+      "type": "string",
+      "description": "Resp. pela execução"
+    },
+    "AreaResponsavel": {
+      "type": "string",
+      "description": "Área responsável pela execução"
+    },
+    "OrdemDeServico": {
+      "type": "string",
+      "description": "Nº da nota criada"
+    },
+    "Fotos": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "URLs das fotos (substitui dbo.PlanoDeAcaoFoto)"
+    }
+  },
+  "required": [
+    "InspecaoId",
+    "ItemRef",
+    "Status"
+  ],
+  "rls": {
+    "read": {
+      "$or": [
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        },
+        {
+          "data.ResponsavelEmail": "{{user.email}}"
+        }
+      ]
+    },
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

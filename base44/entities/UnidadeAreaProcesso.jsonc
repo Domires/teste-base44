@@ -1,0 +1,52 @@
+{
+  "name": "UnidadeAreaProcesso",
+  "description": "Vínculo Unidade x Área x Processo: o local inspecionado (origem: dbo.UnidadeAreaProcesso)",
+  "type": "object",
+  "properties": {
+    "UnidadeId": {
+      "type": "string"
+    },
+    "AreaId": {
+      "type": "string"
+    },
+    "ProcessoId": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "UnidadeId",
+    "AreaId",
+    "ProcessoId"
+  ],
+  "rls": {
+    "read": {
+      "$or": [
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        },
+        {
+          "user_condition": {
+            "role": "user"
+          }
+        }
+      ]
+    },
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}
