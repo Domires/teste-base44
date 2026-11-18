@@ -1,10 +1,8 @@
 {
-  "name": "User",
-  "type": "object",
   "properties": {
     "role": {
       "type": "string",
-      "description": "admin = Administrador (app Admin); user = Inspetor/Auditor/Preenchedor (o acesso é definido pelos cadastros e vínculos)",
+      "description": "The role of the user in the app",
       "enum": [
         "admin",
         "user"
@@ -14,33 +12,6 @@
   "required": [
     "role"
   ],
-  "rls": {
-    "read": {
-      "$or": [
-        {
-          "user_condition": {
-            "role": "admin"
-          }
-        },
-        {
-          "id": "{{user.id}}"
-        }
-      ]
-    },
-    "create": {
-      "user_condition": {
-        "role": "admin"
-      }
-    },
-    "update": {
-      "user_condition": {
-        "role": "admin"
-      }
-    },
-    "delete": {
-      "user_condition": {
-        "role": "admin"
-      }
-    }
-  }
+  "name": "User",
+  "type": "object"
 }

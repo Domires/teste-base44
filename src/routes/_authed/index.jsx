@@ -1,8 +1,6 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import { ArrowRight, ClipboardCheck, ListChecks, LogOut, Settings2, UserX } from "lucide-react";
-import { base44 } from "@/api/base44Client";
-import SeletorUsuarioTeste from "@/components/SeletorUsuarioTeste";
 import { Avatar, LogoPrograma } from "@/components/comum";
 import { Carregando, Erro } from "@/components/Estados";
 import { useAuth } from "@/lib/AuthContext";
@@ -57,11 +55,9 @@ function Inicio() {
               <div className="text-xs text-muted-foreground">{user.email}</div>
             </div>
             <Avatar nome={user.full_name || user.email} />
-            {!base44.isLocal && (
-              <button onClick={logout} title="Sair" aria-label="Sair" className="rounded-md p-2 text-muted-foreground transition hover:bg-muted hover:text-destructive">
-                <LogOut className="h-4 w-4" />
-              </button>
-            )}
+            <button onClick={logout} title="Sair" aria-label="Sair" className="rounded-md p-2 text-muted-foreground transition hover:bg-muted hover:text-destructive">
+              <LogOut className="h-4 w-4" />
+            </button>
           </div>
         )}
       </div>
@@ -92,12 +88,6 @@ function Inicio() {
             <p className="text-sm leading-relaxed text-muted-foreground">
               Seu usuário ainda não está cadastrado como inspetor, auditor ou responsável por alguma área. Procure o administrador do programa.
             </p>
-          </div>
-        )}
-
-        {user && base44.isLocal && (
-          <div className="mx-auto mt-6 w-full max-w-sm sm:[@media(max-height:640px)]:mt-4">
-            <SeletorUsuarioTeste atual={user.email} />
           </div>
         )}
       </div>

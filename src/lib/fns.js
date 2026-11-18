@@ -1,9 +1,28 @@
 // Camada de dados chamada pelas páginas — cada função equivale a um fluxo do Power Automate / stored procedure.
-// No Base44 (TanStack Start) estas chamadas viram server functions (createServerFn) com a mesma assinatura;
-// a implementação de cada uma está em server/functions/<grupo>.js.
-import { base44 } from "@/api/base44Client";
+// Todas passam pela server function chamarFuncao (src/lib/server-fns.js); a implementação de cada uma está em
+// src/lib/servidor/<grupo>.server.js.
+import { chamarFuncao } from "@/lib/server-fns";
 
-const call = (name) => async (data) => (await base44.functions.invoke(name, data)).data;
+export class ApiError extends Error {
+  constructor(status, message) {
+    super(message);
+    this.status = status;
+  }
+}
+
+const call = (nome) => async (dados) => {
+  let r;
+  try {
+    r = await chamarFuncao({ data: { nome, dados: dados ?? {} } });
+  } catch (e) {
+    // sem sessão (401) ou falha inesperada no servidor
+    if (e?.status === 401) throw new ApiError(401, "Sua sessão expirou. Entre novamente.");
+    if (e instanceof TypeError) throw new ApiError(0, "Sem conexão com o servidor. Verifique sua internet e tente novamente.");
+    throw new ApiError(e?.status || 500, "Erro interno no servidor.");
+  }
+  if (!r?.ok) throw new ApiError(r?.erro?.status || 500, r?.erro?.message || "Ocorreu um erro inesperado.");
+  return r.data;
+};
 
 export const obterContexto = call("contexto");
 
@@ -25,6 +44,7 @@ export const planoFns = {
 
 export const adminFns = {
   indicadores: call("admin.indicadores"),
+  carregarDadosIniciais: call("admin.carregarDadosIniciais"),
   listarInspecoes: call("admin.listarInspecoes"),
   obterInspecao: call("admin.obterInspecao"),
   editarInspecao: call("admin.editarInspecao"),

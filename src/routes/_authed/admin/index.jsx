@@ -1,8 +1,12 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
-import { ArrowRight, Building2, CheckCircle2, CircleDashed, ClipboardList, ListChecks, Loader, UserCheck } from "lucide-react";
-import { useQuery } from "@tanstack/react-query";
-import { MarcaPrograma, PageHeader, Secao } from "@/components/comum";
-import { Carregando, Erro } from "@/components/Estados";
+import { useState } from "react";
+import { ArrowRight, Building2, CheckCircle2, CircleDashed, ClipboardList, DatabaseZap, ListChecks, Loader, UserCheck } from "lucide-react";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { toast } from "sonner";
+import { Button } from "@/components/ui/button";
+import { Confirmar, MarcaPrograma, PageHeader, Secao } from "@/components/comum";
+import { Carregando, Erro, Overlay } from "@/components/Estados";
+import { errMsg } from "@/lib/format";
 import { adminFns } from "@/lib/fns";
 import { cn } from "@/lib/utils";
 
@@ -30,6 +34,40 @@ const STATUS = [
   { k: "PlanoDeAcaoFinalizado", titulo: "Planos de Ação Finalizados", curto: "Finalizados", cor: "bg-success", icone: CheckCircle2, texto: "text-success" },
 ];
 
+// Banco novo: oferece carregar os cadastros reais (unidades, áreas, processos, itens SOL, pilares e itens GRD).
+function CargaInicial() {
+  const qc = useQueryClient();
+  const [confirmar, setConfirmar] = useState(false);
+  const [carregando, setCarregando] = useState(false);
+  async function carregar() {
+    setConfirmar(false);
+    setCarregando(true);
+    try {
+      const r = await adminFns.carregarDadosIniciais();
+      toast.success("Cadastros iniciais carregados.", { description: `${r.unidades} unidades, ${r.areas} áreas, ${r.locais} locais, ${r.itensSol} itens SOL, ${r.pilares} pilares e ${r.itensGrd} itens GRD.` });
+      await qc.invalidateQueries();
+    } catch (e) {
+      toast.error(errMsg(e));
+    } finally {
+      setCarregando(false);
+    }
+  }
+  return (
+    <div className="superficie flex flex-col gap-4 border-primary/30 bg-secondary/40 p-5 sm:flex-row sm:items-center" data-carga-inicial>
+      {carregando && <Overlay texto="Carregando cadastros..." />}
+      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white text-primary ring-1 ring-inset ring-primary/15"><DatabaseZap className="h-5 w-5" /></span>
+      <div className="min-w-0 flex-1">
+        <div className="text-sm font-semibold">Os cadastros estão vazios</div>
+        <p className="mt-0.5 text-sm text-muted-foreground">
+          Carregue as 8 unidades, 31 áreas e 66 locais (área × processo), os 31 itens do checklist SOL e os pilares e 36 itens do GRD (planilhas do programa). Pessoas, vínculos, tipos de inspeção, agendamentos e questões SGI são cadastrados depois.
+        </p>
+      </div>
+      <Button onClick={() => setConfirmar(true)} disabled={carregando}>Carregar dados iniciais</Button>
+      <Confirmar aberto={confirmar} onOpenChange={setConfirmar} titulo="Carregar os cadastros iniciais?" descricao="Só é possível fazer a carga com os cadastros vazios. Ela pode ser feita uma única vez." textoConfirmar="Carregar" onConfirmar={carregar} />
+    </div>
+  );
+}
+
 function AdminHome() {
   const q = useQuery({ queryKey: ["admin", "indicadores"], queryFn: () => adminFns.indicadores() });
   if (q.isLoading) return <Carregando />;
@@ -48,6 +86,8 @@ function AdminHome() {
           </Link>
         }
       />
+
+      {d.CadastroVazio && <CargaInicial />}
 
       <div className="grid grid-cols-2 gap-3 sm:gap-4 xl:grid-cols-4">
         <Indicador titulo="Inspeções Realizadas" valor={d.TotalInspecao} icone={ClipboardList} />

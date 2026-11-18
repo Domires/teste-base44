@@ -17,16 +17,24 @@ async function comprimir(file, max = 1600) {
 
 export const TAMANHO_MAXIMO = 25 * 1024 * 1024;
 
+// data:...;base64 -> File (o UploadFile do Base44 recebe um File)
+async function paraArquivo(dataUrl, nome) {
+  const blob = await (await fetch(dataUrl)).blob();
+  return new File([blob], nome, { type: blob.type });
+}
+
+// Envia para o armazenamento público do Base44 (Core.UploadFile) e devolve a URL do arquivo.
 export async function enviarArquivo(file) {
   if (file.size > TAMANHO_MAXIMO) throw new Error(`"${file.name}" tem mais de 25 MB.`);
   const dataUrl = await comprimir(file);
-  const fileName = dataUrl ? file.name.replace(/\.[^.]*$/, "") + ".jpg" : file.name;
-  const { file_url } = await base44.integrations.Core.UploadFile(dataUrl ? { dataUrl, fileName } : { file });
+  const envio = dataUrl ? await paraArquivo(dataUrl, file.name.replace(/\.[^.]*$/, "") + ".jpg") : file;
+  const { file_url } = await base44.integrations.Core.UploadFile({ file: envio });
   return file_url;
 }
 
-export async function enviarDataUrl(dataUrl) {
-  const { file_url } = await base44.integrations.Core.UploadFile({ dataUrl });
+// Assinatura (canvas -> data URL PNG)
+export async function enviarDataUrl(dataUrl, nome = "assinatura.png") {
+  const { file_url } = await base44.integrations.Core.UploadFile({ file: await paraArquivo(dataUrl, nome) });
   return file_url;
 }
 
@@ -34,7 +42,7 @@ export async function enviarDataUrl(dataUrl) {
 const EXT_IMAGEM = ["jpg", "jpeg", "png", "webp", "gif"];
 export const extensao = (url) => (/\.([a-z0-9]{1,10})(?:[?#].*)?$/i.exec(String(url))?.[1] || "").toLowerCase();
 export const ehImagem = (url) => String(url).startsWith("data:image/") || EXT_IMAGEM.includes(extensao(url));
-// "/uploads/<uuid>__Relatorio_final.xlsx" -> "Relatorio_final.xlsx"
+// ".../<id>_Relatorio_final.xlsx" -> nome do arquivo (sem o prefixo de identificação, quando houver)
 export function nomeArquivo(url) {
   const ultimo = decodeURIComponent(String(url).split(/[?#]/)[0].split("/").pop() || "arquivo");
   return ultimo.replace(/^[0-9a-f-]{36}(__)?/i, "") || ultimo;

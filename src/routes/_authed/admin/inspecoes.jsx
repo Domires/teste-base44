@@ -38,9 +38,8 @@ function Inspecoes() {
     setOcupado(true);
     try {
       const r = await fn();
-      // e-mail: sem servidor de e-mail configurado a mensagem só é gravada (não marca como enviada)
-      if (r?.situacao === "nao-configurado") toast.warning("E-mail não enviado: o servidor de e-mail (SMTP) não está configurado.", { description: "A mensagem foi gravada em server/data/outbox e a inspeção não foi marcada como enviada." });
-      else if (r?.falhasDestinatarios?.length) toast.warning(`${msg} Mas não receberam: ${r.falhasDestinatarios.map((f) => f.email).join(", ")}.`, { description: r.falhasDestinatarios.map((f) => `${f.email}: ${f.motivo}`).join(" | "), duration: 8000 });
+      // e-mail: um por destinatário — avisa quem não recebeu
+      if (r?.falhasDestinatarios?.length) toast.warning(`${msg} Mas não receberam: ${r.falhasDestinatarios.map((f) => f.email).join(", ")}.`, { description: r.falhasDestinatarios.map((f) => `${f.email}: ${f.motivo}`).join(" | "), duration: 8000 });
       else toast.success(msg);
       setAcao(null);
       recarregar();

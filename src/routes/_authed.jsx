@@ -1,25 +1,19 @@
 import { Outlet, createFileRoute } from "@tanstack/react-router";
 import AppShell from "@/components/AppShell";
-import { Carregando, Erro } from "@/components/Estados";
-import { useAuth } from "@/lib/AuthContext";
+import { AuthGateError, requireSignedIn } from "@/components/auth/AuthGate";
 
-// Layout das páginas que dependem do usuário logado (mesmo padrão do template Base44).
-// Não há tela de login: no Base44 o usuário chega autenticado pela plataforma (SSO).
-// Ao portar, adicione aqui `ssr: false, beforeLoad: requireSignedIn, errorComponent: AuthGateError` do template.
+// Portão de login do Base44: todas as páginas do app ficam em src/routes/_authed/.
+// O usuário entra pelo login da plataforma (SSO); quem não está logado vai para /login e volta para a página
+// pedida; quem está logado no Base44 mas não é usuário deste app vê a tela "acesso não concedido".
+// ssr: false — as páginas dependem do usuário logado e renderizam só no navegador.
 export const Route = createFileRoute("/_authed")({
+  ssr: false,
+  beforeLoad: requireSignedIn,
+  errorComponent: AuthGateError,
   component: AuthedLayout,
 });
 
 function AuthedLayout() {
-  const { isAuthenticated, isLoadingAuth, authError, refresh } = useAuth();
-  if (isLoadingAuth) return <Carregando tela />;
-  if (!isAuthenticated) {
-    return (
-      <div className="mx-auto max-w-md p-8">
-        <Erro erro={authError || { message: "Não foi possível identificar o usuário logado." }} onRetry={refresh} />
-      </div>
-    );
-  }
   return (
     <AppShell>
       <Outlet />

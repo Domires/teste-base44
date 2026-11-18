@@ -35,8 +35,9 @@ function Usuarios() {
 
   async function salvar(d) {
     try {
-      await adminFns.salvarUsuario({ id: edit?.id || null, ...d, role: d.role || "user" });
-      toast.success("Usuário salvo.");
+      const r = await adminFns.salvarUsuario({ id: edit?.id || null, ...d, role: d.role || "user" });
+      if (r?.convidado) toast.success(`Convite enviado para ${d.email}.`, { description: "O usuário aparece na lista depois de aceitar o convite." });
+      else toast.success("Usuário salvo.");
       setEdit(undefined);
       qc.invalidateQueries({ queryKey: ["admin", "usuarios"] });
     } catch (e) {
@@ -61,7 +62,7 @@ function Usuarios() {
     <div>
       <PageHeader
         titulo="Usuários e acessos"
-        subtitulo="O perfil Administrador dá acesso ao Admin. Inspetores, auditores e responsáveis recebem acesso pelos cadastros e vínculos (a conta é criada automaticamente ao cadastrá-los)."
+        subtitulo="O perfil Administrador dá acesso ao Admin. Inspetores, auditores e responsáveis recebem acesso pelos cadastros e vínculos (quem ainda não é usuário recebe um convite por e-mail ao ser cadastrado). Usuários convidados aparecem aqui depois de aceitar o convite."
         acoes={
           <>
             <Button variant="outline" onClick={() => exportarUsuarios(q.data).catch((e) => toast.error(errMsg(e)))}><Download className="h-4 w-4" /> Exportar Excel</Button>
@@ -74,14 +75,14 @@ function Usuarios() {
         aberto={importando}
         onClose={() => setImportando(false)}
         titulo="Importar Usuários do Excel"
-        descricao="Cria ou atualiza usuários e perfis de acesso em massa. Nenhum usuário é removido pela importação."
-        regra="O usuário é identificado pelo e-mail: se já existir, é atualizado; senão, é criado. Nome ou Perfil em branco mantêm o valor atual."
+        descricao="Convida ou atualiza usuários e perfis de acesso em massa. Nenhum usuário é removido pela importação."
+        regra="O usuário é identificado pelo e-mail: se já existir, é atualizado; senão, recebe um convite. Nome ou Perfil em branco mantêm o valor atual."
         onModelo={() => exportarUsuarios([], true).catch((e) => toast.error(errMsg(e)))}
         interpretar={(planilha) => interpretarUsuarios(planilha, q.data, user?.email)}
         enviar={async (itens) => {
           const r = await adminFns.importarUsuarios({ linhas: itens.map((i) => ({ linha: i.linha, ...i.dados })) });
           qc.invalidateQueries({ queryKey: ["admin", "usuarios"] });
-          return { mensagens: [`${r.criados} usuário(s) criado(s).`, `${r.atualizados} usuário(s) atualizado(s).`], erros: r.erros };
+          return { mensagens: [`${r.criados} convite(s) enviado(s).`, `${r.atualizados} usuário(s) atualizado(s).`], erros: r.erros };
         }}
       />
       <div className="overflow-hidden superficie">

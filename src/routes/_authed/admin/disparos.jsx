@@ -52,7 +52,6 @@ function Disparos() {
       if (r.falhas) toast.error(`${r.falhas} e-mail(s) falharam no envio — os demais seguiram normalmente. Detalhes abaixo e em Logs.`, { duration: 8000 });
       if (r.parciais) toast.warning(`${r.parciais} inspeção(ões) com destinatário(s) que não receberam o e-mail (os demais receberam). Detalhes abaixo e em Logs.`, { duration: 8000 });
       if (r.semVinculo) toast.warning(`${r.semVinculo} inspeção(ões) sem responsáveis vinculados não receberam e-mail.`);
-      if (r.naoConfigurado) toast.warning(`${r.naoConfigurado} e-mail(s) não enviados: o servidor de e-mail (SMTP) não está configurado.`, { description: "As mensagens foram gravadas em server/data/outbox e as inspeções não foram marcadas como enviadas." });
     } catch (e) {
       toast.error(errMsg(e));
     } finally {
@@ -136,7 +135,6 @@ const SITUACAO = {
   enviado: { rotulo: "Enviado", tom: "sucesso" },
   falha: { rotulo: "Falha no envio", tom: "perigo" },
   "sem-vinculo": { rotulo: "Sem vínculo", tom: "alerta" },
-  "nao-configurado": { rotulo: "SMTP não configurado", tom: "neutro" },
   parcial: { rotulo: "Enviado em parte", tom: "alerta" },
 };
 function ResultadoDisparo({ r }) {
@@ -161,11 +159,6 @@ function ResultadoDisparo({ r }) {
       {r.modoTeste && (
         <p className="border-b bg-amber-50 px-5 py-3 text-[13px] text-amber-900">
           <b>Modo teste:</b> os e-mails "enviados" foram somente para {r.destinatariosTeste.join(", ")}. As inspeções não foram marcadas como "e-mail enviado".
-        </p>
-      )}
-      {r.naoConfigurado > 0 && (
-        <p className="border-b bg-muted/40 px-5 py-3 text-[13px] text-muted-foreground">
-          {r.naoConfigurado} e-mail(s) não foram enviados porque o servidor de e-mail (SMTP) não está configurado. As mensagens foram gravadas em <code>server/data/outbox</code> e as inspeções não foram marcadas como enviadas.
         </p>
       )}
       {problemas.length > 0 ? (
